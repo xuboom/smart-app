@@ -1,0 +1,49 @@
+<view class="container">
+    <view class="info-card">
+        <view class="title">
+            <view class="imgbar">
+                <img class="image" src={{userinfo.image}}/>
+                <view class="title-btn">
+                    <button class="edit-button">编辑资料</button>
+                    <button class="edit-button">退出登录</button>
+                </view>
+            </view>
+            <view class="description">
+                <view class="name">昵称：{{userinfo.name}}</view>
+                <view class="name">性别：{{userinfo.sex === 0?'女':'男'}}</view>
+            </view>
+            <view class="name">生日：{{userinfo.birthday}}</view>
+            <view class="name">邮箱：{{userinfo.email}}</view>
+            <view class="name">电话：{{userinfo.phone}}</view>
+            <view class="name">地址：{{userinfo.address}}</view>
+            <view class="name">简介：{{userinfo.introduction}}</view>
+            <view></view>
+        </view>
+        <scroll-view
+            class="content"
+            scroll-y>
+            <view class="tablebox" s-for="list,index in daily">
+                <view class="content-title">
+                    <view class="mood">心情：<img class="img-mood" src={{mood[list.mood]}}/></view>
+                    <view class="weather">天气：<img class="img-weather" src={{weather[list.weather]}}/></view>
+                    <view>{{list.nowdate}}</view>
+                </view>
+                <view class="content-box">{{list.description}}</view>
+                <view class="icon-table">
+                    <view>
+                        <img class="img-icon" alt="" src={{like}}/>
+                    </view>
+                    <view>
+                        <img class="img-icon" alt="" src={{comment}}/>
+                    </view>
+                    <view bind:tap="delete">
+                        <img class="img-icon" alt="" src={{delete}}/>
+                    </view>
+                </view>
+                <view></view>
+                <view></view>
+            </view>
+        </scroll-view>
+
+    </view>
+</view>

@@ -1,0 +1,129 @@
+/**
+ * @file home.css
+ * @author swan
+ */
+page {
+    height: 100%;
+}
+.container {
+    padding: 40rpx;
+    font-size: 32rpx;
+    background: #f5f7fa;
+    height: 100%;
+    box-sizing: border-box;
+}
+.info-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 16rpx;
+    background-color: rgba(212,196,219,0.3);
+    width:100%;
+    padding:20rpx;
+    height: 100%;
+    box-sizing: border-box;
+}
+.title {
+
+    padding: 40rpx;
+}
+.imgbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:  space-between;
+}
+.image {
+    height: 150rpx;
+    width: 150rpx;
+    border-radius: 50%;
+    border: solid 2rpx rgba(124,80,157);
+}
+.title-btn {
+    margin-left: 20rpx;
+    display: flex;
+    flex-direction: column;
+}
+.edit-button {
+    font-weight: 500;
+    /* color: #7C509D; */
+    color: rgba(187,160,203);
+    letter-spacing: 0;
+    font-size: 32rpx;
+    border-radius: 16rpx;
+    text-align: center;
+    line-height: 60rpx;
+    height: 60rpx;
+    margin-bottom: 4rpx;
+}
+.edit-button::after {
+    border: none;
+}
+.description {
+    display: flex;
+    flex-direction: row;
+    justify-content:  space-between;
+    flex-wrap: wrap;
+}
+.name {
+    margin-left: 12rpx;
+    margin-top: 20rpx;
+    font-size: 32rpx;
+    color: rgba(124,80,157);
+    letter-spacing: 0;
+}
+.content {
+    box-sizing: border-box;
+    padding: 20rpx;
+    border-radius: 16rpx;
+
+    background-color: #fff;
+    height: 420rpx;
+}
+.tablebox {
+    color: rgba(187,160,203);
+    padding: 20rpx;
+    border-radius: 16rpx;
+    background-color: rgba(249,246,207,0.3);
+    margin-bottom: 20rpx;
+}
+.content-title {
+    display: flex;
+    flex-direction: row;
+    justify-content:  space-between;
+    margin-bottom: 20rpx;
+}
+.mood {
+    display:flex;
+    height:32rpx;
+    font-size: 32rpx;
+    line-height: 32rpx;
+}
+.img-mood {
+    margin: auto 0;
+    height: 32rpx;
+    width: 32rpx;
+}
+.weather {
+    display:flex;
+    height:32rpx;
+    font-size: 32rpx;
+    line-height: 32rpx;
+}
+.img-weather {
+    margin: auto 0;
+    height: 32rpx;
+    width: 32rpx;
+}
+.content-box {
+    margin-bottom: 20rpx;
+}
+.icon-table {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.img-icon {
+    margin-left: 20rpx;
+    height: 32rpx;
+    width: 32rpx;
+}

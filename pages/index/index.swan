@@ -1,0 +1,50 @@
+<!-- index.swan -->
+<view class="container">
+    <view class="logo">
+    </view>
+    <view class="userinfo">
+        <form bindsubmit="formSubmit" class="form">
+            <view class="list-area border-bottom">
+                <view class="list-item-key">用户名</view>
+                <view class="list-item-value">
+                    <input
+                    value="{{username}}"
+                    type="text"
+                    bindinput="bindKeyInput"
+                    datainput='selfName'
+                    name='selfName'
+                    adjust-position="true"
+                    placeholder='请输入用户名' />
+                </view>
+            </view>
+            <view class="list-area border-bottom">
+                <view class="list-item-key">密码</view>
+                <view class="list-item-value">
+                    <input
+                    password={{showtype}}
+                    value="{{password}}"
+                    type="password"
+                    bindinput="bindKeyInput"
+                    datainput='selfPassword'
+                    name='selfPassword'
+                    adjust-position="true"
+                    placeholder='请输入密码' />
+                    <image bind:tap="show" class="showimg" src="{{isShow? '/images/open.png' : '/images/close.png' }}"/>
+                </view>
+            </view>
+            <view class="block-area">
+                <checkbox class="block border-bottom" checked="{{isRemember}}" bind:tap="check"></checkbox>
+                <text>是否记住用户名及密码</text>
+            </view>
+            <button class="{{isInput?'button-commit':'button-default'}}"formType="submit">
+                登录
+            </button>
+        </form>
+        <!-- <button class="userinfo-login-btn" s-if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+        <view s-else class="userinfo-message">
+        <button class="userinfo-btn" style="background-image: url({{userInfo.avatarUrl}})" bind:tap="gohome"></button>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        <button class="userinfo-logout-btn" bind:tap="logout">退出</button>
+        </view> -->
+    </view>
+</view>

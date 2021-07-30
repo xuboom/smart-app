@@ -1,0 +1,35 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/user/home/home",
+        "pages/user/user_info/user_info",
+        "pages/daily/daily_list/daily_list"
+    ],
+
+    "window": {
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "智能小程序",
+        "backgroundTextStyle": "light"
+    },
+    "tabBar": {
+        "color": "#666",
+        "selectedColor": "#000",
+        "borderStyle": "#D6D6D6",
+        "backgroundColor": "#FFF",
+        "list": [
+            {
+                "pagePath": "page/daily/daily_list/daily_list",
+                "iconPath": "images/space_default.png",
+                "selectedIconPath": "images/space.png",
+                "text": "空间"
+            },
+            {
+                "pagePath": "pages/user/home/home",
+                "iconPath": "images/userinfo_default.png",
+                "selectedIconPath": "images/userinfo.png",
+                "text": "个人"
+            }
+        ]
+    }
+}

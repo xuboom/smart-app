@@ -1,0 +1,46 @@
+{
+    "appid": "17767960",
+    "compilation-args": {
+        "common": {},
+        "options": [
+            {
+                "extra": {
+                    "compileArgs": "--module cmd",
+                    "ext": {},
+                    "index": "pages/user/home/home",
+                    "query": "",
+                    "scene": {},
+                    "single": false,
+                    "singleArgs": null
+                },
+                "id": 0,
+                "text": "pages/user/home/home"
+            },
+            {
+                "extra": {
+                    "compileArgs": "--module cmd",
+                    "ext": {},
+                    "index": "pages/index/index",
+                    "query": "",
+                    "scene": {},
+                    "single": false,
+                    "singleArgs": null
+                },
+                "id": 1,
+                "text": "pages/index/index"
+            }
+        ],
+        "selected": 0
+    },
+    "host": "baiduboxapp",
+    "projectname": "smart-app",
+    "setting": {
+        "urlCheck": false
+    },
+    "swan": {
+        "baiduboxapp": {
+            "swanJsVersion": "3.320.32",
+            "extensionJsVersion": "1.21.2"
+        }
+    }
+}
