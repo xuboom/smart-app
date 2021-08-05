@@ -3,32 +3,17 @@ const app = getApp();
 
 Page({
     data: {
+        tag_id: '',
+        tag_name: '',
         dailyList: [],
-        default: '../../../images/user.png',
-        comment:  '../../../images/Chat.png',
-        like: '../../../images/Heart.png',
-        delete: '../../../images/Trash_bin.png',
-        mood: [
-            '../../../images/Big-Smile.png',
-            '../../../images/Smile.png',
-            '../../../images/Strait.png',
-            '../../../images/Layer-2.png',
-            '../../../images/Cry-Hard.png',
-            '../../../images/Yelling.png'
-        ],
-        weather: [
-            '../../../images/ios-sunny-outline.png',
-            '../../../images/ios-partlysunny-outline.png',
-            '../../../images/ios-cloud-outline.png',
-            '../../../images/ios-rainy-outline.png',
-            '../../../images/ios-bolt-outline.png',
-            '../../../images/ios-snowy.png'
-        ],
-        tagList: ''
     },
-    onInit: function () {
+    onInit: function (param) {
         // 监听页面初始化的生命周期函数
-        // this.getAllDaily();
+        this.setData({
+            tag_id: param.tag_id,
+            tag_name: param.tag_name,
+        })
+        // this.getTagDaily();
     },
     onLoad: function () {
         // 监听页面加载的生命周期函数
@@ -38,8 +23,7 @@ Page({
     },
     onShow: function() {
         // 监听页面显示的生命周期函数
-        this.showinit();
-        this.getAllDaily();
+        this.getTagDaily();
     },
     onHide: function() {
         // 监听页面隐藏的生命周期函数
@@ -72,14 +56,9 @@ Page({
         let dailylist = this.data.dailyList.concat(list);
         this.setData('dailyList', dailylist);
     },
-    async showinit() {
-        await this.setData({
-            dailyList: [],
-        })
-    },
-    async getAllDaily () {
+    async getTagDaily () {
         const daily = await app.http.get(
-            api.API_GETALLDAILY,
+            api.API_GETTAGDAILY, {tagid: this.data.tag_id}
         );
         let list = daily.data;
         for (let i=0;i<daily.data.length;i++)
@@ -89,15 +68,9 @@ Page({
         this.dailyList = list;
         this.renderDailyList();
     },
-    goTagList (e) {
-        const Params = '?tag_id=' + e.currentTarget.dataset.tagid + '&tag_name=' + e.currentTarget.dataset.tagname;
-        swan.navigateTo({
-            url:'../tag_daily/tag_daily'+ Params,
-        })
-    },
     addDaily () {
         swan.navigateTo({
-            url:'../add_daily/add_daily'
+            url:'../add_daily/add_daily?tag_id=' + this.data.tag_id,
         })
     }
 });

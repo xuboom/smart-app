@@ -15,7 +15,6 @@
             </view>
             <text class="content-box">{{list.description}}</text>
             <view class="icon-table">
-                <view s-if="{{list.tag_name !== null}}" bind:tap="goTagList" class="tag-text" data-tagid={{list.tag_id}} data-tagname={{list.tag_name}}># {{list.tag_name}}</view>
                 <view>
                     <img class="img-icon" alt="" src={{like}} />
                 </view>

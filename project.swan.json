@@ -28,9 +28,36 @@
                 },
                 "id": 1,
                 "text": "pages/index/index"
+            },
+            {
+                "extra": {
+                    "compileArgs": "--module cmd",
+                    "ext": {},
+                    "index": "pages/daily/daily_list/daily_list",
+                    "isPrefetch": false,
+                    "query": "",
+                    "scene": {},
+                    "single": false,
+                    "singleArgs": null
+                },
+                "id": 2,
+                "text": "pages/daily/daily_list/daily_list"
+            },
+            {
+                "extra": {
+                    "compileArgs": "--module cmd",
+                    "ext": {},
+                    "index": "pages/daily/add_daily/add_daily",
+                    "query": "",
+                    "scene": {},
+                    "single": false,
+                    "singleArgs": null
+                },
+                "id": 3,
+                "text": "pages/daily/add_daily/add_daily"
             }
         ],
-        "selected": 0
+        "selected": 2
     },
     "host": "baiduboxapp",
     "projectname": "smart-app",
@@ -39,8 +66,8 @@
     },
     "swan": {
         "baiduboxapp": {
-            "swanJsVersion": "3.320.32",
-            "extensionJsVersion": "1.21.2"
+            "extensionJsVersion": "1.21.2",
+            "swanJsVersion": "3.320.32"
         }
     }
 }

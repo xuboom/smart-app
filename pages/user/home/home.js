@@ -43,6 +43,7 @@ Page({
                 userid: param.userid,
             })
             this.getInfo();
+            this.getDaily();
         }
         else {
             let key = 'USER_ID';
@@ -56,6 +57,7 @@ Page({
                         })
                     }
                     this.getInfo();
+                    // this.getDaily();
                 },
                 fail: err => {
                     console.log('read storage failed', err);
@@ -87,6 +89,8 @@ Page({
     },
     onShow: function() {
         // 监听页面显示的生命周期函数
+        this.showinit();
+        this.getDaily();
     },
     onHide: function() {
         // 监听页面隐藏的生命周期函数
@@ -106,24 +110,83 @@ Page({
     onError: function () {
         // 错误监听函数
     },
-    async getInfo() {
+    scrollBottom: function () {
+        this.renderDailyList();
+        console.log('loading');
+    },
+    // 分页
+    renderDailyList() {
+        let list = this.dailyList.splice(0, 10);
+        if (list.length < 10) {
+            // todo 到底了
+        }
+        let dailylist = this.data.daily.concat(list);
+        this.setData('daily', dailylist);
+    },
+    async showinit () {
+        await this.setData({
+            daily: [],
+        })
+    },
+    async getInfo () {
         const result = await app.http.get(
             api.API_GETINFO,
             {userid: this.data.userid},
         );
+
+        this.setData({
+            userinfo: result.data,
+
+        })
+
+    },
+    async getDaily () {
         const daily = await app.http.get(
             api.API_GETDAILY,
             {userid: this.data.userid},
         );
-        this.setData({
-            userinfo: result.data,
-            daily: daily.data
-        })
-        console.log('llll',this.data.userinfo);
-        console.log('dddd',this.data.daily);
+        let list = daily.data;
+        for (let i=0;i<daily.data.length;i++)
+        {
+            list[i].description=list[i].description.split('&hh').join('\n');
+        }
+        this.dailyList = list;
+        this.renderDailyList();
     },
-    delete (e){
+    async delete (e){
         // todo delete
-        console.log('delete',e);
+        let id = e.target.dataset.id;
+        const result = await app.http.get(
+            api.API_DELETEDAILY,
+            {id: id},
+        );
+        if (result.msg === "success") {
+            swan.showToast({
+                title: '删除成功',
+                icon: 'none',
+                mask: false,
+                fail: err => {
+                    console.log('showToast fail', err);
+                }
+            });
+        }
+        this.getDaily();
+    },
+    logout() {
+        swan.removeStorage({
+            key: 'USER_ID',
+            success: res => {
+                console.log('logout success')
+            }
+        });
+        swan.removeStorage({
+            key: 'USER_PASS',
+            success: res => {
+                console.log('logout success')
+            }
+        });
+        swan.reLaunch({
+            url: '../../index/index'
+        });
     }
 });

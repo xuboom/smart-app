@@ -1,0 +1,80 @@
+<view class="container">
+    <form class="box" bindsubmit="submit">
+        <view>
+            <textarea
+            bindinput="bindInput"
+            class="inputarea"
+            name='content'
+            maxlength="-1"
+            placeholder="记录一下吧.."
+            confirm-type="换行"
+            />
+        </view>
+        <picker
+            class="choose-tag"
+            mode="selector"
+            range="{{tagList}}"
+            name="tag"
+            range-key="tag_name"
+            data-input="tag"
+            disabled="{{tag_default}}"
+            bind:change="selectorChange"
+            bindinput="bindInput">
+            <view>记得给daily分类（选）</view>
+            <view class="select-text" s-if="tag_id!==''">
+               # {{tag_text}}
+            </view>
+            <view class="right-icon">
+                <image class="right-icon" src="../../../images/row-right.png"/>
+            </view>
+        </picker>
+        <picker
+            class="choose-mood"
+            mode="selector"
+            range="{{mood}}"
+            name="mood"
+            range-key="name"
+            data-input="mood"
+            bind:change="selectorChange"
+            bindinput="bindInput">
+            <view>选择一个心情吧</view>
+            <view class="select-icon" s-if="select_mood!==''">
+                <image class="right-icon" src={{mood_image}}/>
+            </view>
+            <view class="right-icon">
+                <image class="right-icon" src="../../../images/row-right.png"/>
+            </view>
+        </picker>
+        <picker
+            class="choose-weather"
+            mode="selector"
+            range="{{weather}}"
+            name="weather"
+            range-key="name"
+            data-input="weather"
+            bind:change="selectorChange">
+            <view>今天天气怎么样</view>
+            <view class="select-icon" s-if="select_weather!==''">
+                <image class="right-icon" src={{weather_image}}/>
+            </view>
+            <view class="right-icon">
+                <image class="right-icon" src="../../../images/row-right.png"/>
+            </view>
+        </picker>
+
+         <!-- <view class="smt-card-area">
+            <smt-image-uploader
+                picture-container-class="image-uploader-container"
+                picture-item-class="image-uploader-item"
+                theme="{{item.theme}}"
+                data-index="{{index}}"
+                bind:chooseimage="chooseImage"
+                bind:delimage="delImage"
+                picture-list="{{item.images}}"
+                picture-limit="{{item.pictureLimit}}"
+                picture-select-limit="{{item.pictureSelectLimit}}"
+                showTips="true"/>
+        </view> -->
+        <button class="submit-button" form-type="submit">提交</button>
+    </form>
+</view>

@@ -5,7 +5,7 @@
                 <img class="image" src={{userinfo.image}}/>
                 <view class="title-btn">
                     <button class="edit-button">编辑资料</button>
-                    <button class="edit-button">退出登录</button>
+                    <button class="edit-button" bind:tap="logout">退出登录</button>
                 </view>
             </view>
             <view class="description">
@@ -21,14 +21,15 @@
         </view>
         <scroll-view
             class="content"
-            scroll-y>
+            scroll-y
+            bindscrolltolower="scrollBottom">
             <view class="tablebox" s-for="list,index in daily">
                 <view class="content-title">
                     <view class="mood">心情：<img class="img-mood" src={{mood[list.mood]}}/></view>
                     <view class="weather">天气：<img class="img-weather" src={{weather[list.weather]}}/></view>
-                    <view>{{list.nowdate}}</view>
+                    <view>{{list.time}}</view>
                 </view>
-                <view class="content-box">{{list.description}}</view>
+                <text class="content-box">{{list.description}}</text>
                 <view class="icon-table">
                     <view>
                         <img class="img-icon" alt="" src={{like}}/>
@@ -36,7 +37,7 @@
                     <view>
                         <img class="img-icon" alt="" src={{comment}}/>
                     </view>
-                    <view bind:tap="delete">
+                    <view data-id="{{list.id}}" bind:tap="delete">
                         <img class="img-icon" alt="" src={{delete}}/>
                     </view>
                 </view>

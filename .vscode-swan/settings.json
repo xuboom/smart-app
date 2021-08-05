@@ -1,4 +1,4 @@
 {
-    "eslint.enable": true,
+    "eslint.enable": false,
     "workbench.activityBar.visible": true
 }

@@ -3,9 +3,10 @@
         "pages/index/index",
         "pages/user/home/home",
         "pages/user/user_info/user_info",
-        "pages/daily/daily_list/daily_list"
+        "pages/daily/daily_list/daily_list",
+        "pages/daily/add_daily/add_daily",
+        "pages/daily/tag_daily/tag_daily"
     ],
-
     "window": {
         "navigationBarBackgroundColor": "#ffffff",
         "navigationBarTextStyle": "black",
@@ -19,7 +20,7 @@
         "backgroundColor": "#FFF",
         "list": [
             {
-                "pagePath": "page/daily/daily_list/daily_list",
+                "pagePath": "pages/daily/daily_list/daily_list",
                 "iconPath": "images/space_default.png",
                 "selectedIconPath": "images/space.png",
                 "text": "空间"
