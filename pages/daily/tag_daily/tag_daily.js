@@ -3,9 +3,28 @@ const app = getApp();
 
 Page({
     data: {
+        default: '../../../images/user.png',
+        comment:  '../../../images/Chat.png',
+        like: '../../../images/Heart.png',
         tag_id: '',
         tag_name: '',
         dailyList: [],
+        mood: [
+            '../../../images/Big-Smile.png',
+            '../../../images/Smile.png',
+            '../../../images/Strait.png',
+            '../../../images/Layer-2.png',
+            '../../../images/Cry-Hard.png',
+            '../../../images/Yelling.png'
+        ],
+        weather: [
+            '../../../images/ios-sunny-outline.png',
+            '../../../images/ios-partlysunny-outline.png',
+            '../../../images/ios-cloud-outline.png',
+            '../../../images/ios-rainy-outline.png',
+            '../../../images/ios-bolt-outline.png',
+            '../../../images/ios-snowy.png'
+        ],
     },
     onInit: function (param) {
         // 监听页面初始化的生命周期函数

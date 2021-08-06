@@ -139,7 +139,8 @@ Page({
         if (isInput) {
             let description = e.detail.value.content.split('\n').join('&hh');
             let mood = e.detail.value.mood;
-            let tag = e.detail.value.tag + 1;
+            let tag = this.data.tag_default ? this.data.tag_id : e.detail.value.tag + 1;
+            console.log('tag',e.detail.value.tag);
             let weather = e.detail.value.weather;
             let d = new Date();
             let time = d.getFullYear().toString() + "-" + (d.getMonth() + 1).toString() + "-" + d.getDate().toString() + " " + d.getHours().toString() + ":" + d.getMinutes().toString();

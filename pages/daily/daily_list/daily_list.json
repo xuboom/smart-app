@@ -1,3 +1,6 @@
 {
-    "navigationBarTitleText": "小徐的自学Program"
+    "navigationBarTitleText": "小徐的自学Program",
+    "usingComponents": {
+        "comment":"/component/comment/comment"
+    }
 }

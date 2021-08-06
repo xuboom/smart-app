@@ -121,6 +121,34 @@ page {
     margin-top: 32rpx;
 }
 
+.comment-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.comment-num {
+    margin-left: 10rpx;
+}
+
+.comment-content {
+    margin-right: 32rpx;
+}
+
+.comment-list {
+    color: rgba(124,80,157);
+    font-size: 28rpx;
+    background-color: #fff;
+    border-radius: 16rpx;
+    padding: 20rpx;
+}
+
+.comment-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .img-icon {
     margin-left: 20rpx;
     height: 32rpx;

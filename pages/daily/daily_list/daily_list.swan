@@ -19,12 +19,18 @@
                 <view>
                     <img class="img-icon" alt="" src={{like}} />
                 </view>
-                <view>
+                <view bind:tap="comment" class="comment-bar">
                     <img class="img-icon" alt="" src={{comment}} />
+                    <view s-if="list.sum!==0" class="comment-num">{{list.sum}}</view>
                 </view>
             </view>
-            <view></view>
-            <view></view>
+            <view s-if="list.sum!==0" class="comment-list">
+                <view class="comment-box" s-for="comment,idx in list.first_comments">
+                    <view class="comment-user">{{comment.user_name}}：</view>
+                    <view class="comment-content">{{comment.content}}</view>
+                    <view s-if="comment.subsum!==0">( 回复:{{comment.subsum}} )</view>
+                </view>
+            </view>
         </view>
     </scroll-view>
     <view class="add" bind:tap="addDaily">
@@ -32,3 +38,4 @@
         <view class="">发帖</view>
     </view>
 </view>
+<comment id='popup' title='评论'></comment>

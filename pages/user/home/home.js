@@ -170,6 +170,7 @@ Page({
                 }
             });
         }
+        this.showinit();
         this.getDaily();
     },
     logout() {

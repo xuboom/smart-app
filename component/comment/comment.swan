@@ -1,0 +1,13 @@
+<view class="container">
+    <!--to do-->
+    <!--屏幕背景变暗的背景  -->
+    <view class="background_screen" bindtap="hideModal" s-if="{{showModalStatus}}"></view>
+    <!--弹出框  -->
+    <view animation="{{animationData}}" class="attr_box" s-if="{{showModalStatus}}">
+        <image class="back" src="../../images/row-right.png" bindtap="hideModal"></image>
+        <view class="ctTitle">{{title}}</view>
+        <view class="thresholdBtn">
+            <button id="yes" class="confirm" size="mini" type="primary" bindtap="hideModal">确定</button>
+        </view>
+    </view>
+</view>

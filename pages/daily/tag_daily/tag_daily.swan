@@ -1,4 +1,5 @@
 <view class="container">
+    <view class="tag-title"># {{tag_name}}</view>
     <scroll-view class="content" scroll-y bindscrolltolower="scrollBottom">
         <view class="tablebox" s-for="list,index in dailyList">
             <view class="info">

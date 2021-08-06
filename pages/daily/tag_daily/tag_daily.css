@@ -12,6 +12,17 @@ page {
     box-sizing: border-box;
 }
 
+.tag-title {
+    border-radius: 16rpx;
+    background-color: #fff;
+    width: 100%;
+    color: rgba(124,80,157);
+    height: 60rpx;
+    margin-bottom: 32rpx;
+    text-align: center;
+    line-height: 60rpx;
+}
+
 .content {
     box-sizing: border-box;
     padding: 20rpx;

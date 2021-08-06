@@ -35,6 +35,7 @@ Page({
     },
     onReady: function() {
         // 监听页面初次渲染完成的生命周期函数
+        this.popup= this.selectComponent("#popup");
     },
     onShow: function() {
         // 监听页面显示的生命周期函数
@@ -99,5 +100,8 @@ Page({
         swan.navigateTo({
             url:'../add_daily/add_daily'
         })
+    },
+    comment () {
+        this.popup.changeRange();
     }
 });
