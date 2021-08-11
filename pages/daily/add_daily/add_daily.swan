@@ -61,20 +61,6 @@
                 <image class="right-icon" src="../../../images/row-right.png"/>
             </view>
         </picker>
-
-         <!-- <view class="smt-card-area">
-            <smt-image-uploader
-                picture-container-class="image-uploader-container"
-                picture-item-class="image-uploader-item"
-                theme="{{item.theme}}"
-                data-index="{{index}}"
-                bind:chooseimage="chooseImage"
-                bind:delimage="delImage"
-                picture-list="{{item.images}}"
-                picture-limit="{{item.pictureLimit}}"
-                picture-select-limit="{{item.pictureSelectLimit}}"
-                showTips="true"/>
-        </view> -->
         <button class="submit-button" form-type="submit">提交</button>
     </form>
 </view>

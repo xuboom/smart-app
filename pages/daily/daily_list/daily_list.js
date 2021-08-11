@@ -24,7 +24,7 @@ Page({
             '../../../images/ios-bolt-outline.png',
             '../../../images/ios-snowy.png'
         ],
-        tagList: ''
+        tagList: '',
     },
     onInit: function () {
         // 监听页面初始化的生命周期函数
@@ -35,7 +35,7 @@ Page({
     },
     onReady: function() {
         // 监听页面初次渲染完成的生命周期函数
-        this.popup= this.selectComponent("#popup");
+        this.popup= this.selectComponent("#comment");
     },
     onShow: function() {
         // 监听页面显示的生命周期函数
@@ -101,7 +101,25 @@ Page({
             url:'../add_daily/add_daily'
         })
     },
-    comment () {
-        this.popup.changeRange();
+    async getFirstComment (params) {
+        const daily = await app.http.get(
+            api.API_GETFIRSTCOMMENT, {dailyid: params.dailyid}
+        );
+        let sum=this.data.dailyList[params.indx].sum+1;
+
+        this.setData({
+            ['dailyList['+params.indx+'].first_comments']: daily.data,
+            ['dailyList['+params.indx+'].sum']:sum
+        })
+    },
+    comment (e) {
+        const params= {
+            dailyid: e.currentTarget.dataset.dailyid,
+            indx: e.currentTarget.dataset.indx
+        }
+        this.popup.changeRange(params);
+    },
+    commentRefresh: function (e) {
+        this.getFirstComment(e.detail);
     }
 });

@@ -59,7 +59,8 @@ page {
 }
 
 .tablebox {
-    color: rgba(187,160,203);
+    color: rgba(124,80,157);
+    /* color: rgba(187,160,203); */
     padding: 20rpx;
     border-radius: 16rpx;
     border: solid  1rpx rgba(187,160,203);
@@ -136,7 +137,7 @@ page {
 }
 
 .comment-list {
-    color: rgba(124,80,157);
+    color: rgba(187,160,203);;
     font-size: 28rpx;
     background-color: #fff;
     border-radius: 16rpx;

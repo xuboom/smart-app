@@ -4,10 +4,44 @@
     <view class="background_screen" bindtap="hideModal" s-if="{{showModalStatus}}"></view>
     <!--弹出框  -->
     <view animation="{{animationData}}" class="attr_box" s-if="{{showModalStatus}}">
-        <image class="back" src="../../images/row-right.png" bindtap="hideModal"></image>
-        <view class="ctTitle">{{title}}</view>
-        <view class="thresholdBtn">
-            <button id="yes" class="confirm" size="mini" type="primary" bindtap="hideModal">确定</button>
+        <view class="title">
+            <image class="back" src="../../images/row-left.png" bindtap="hideModal"></image>
+            <view class="ctTitle">{{title}}</view>
         </view>
+        <view class="none-info" s-if="{{comments.length===0}}">
+            <image class="empty" src="../../images/empty.png" />
+            <view>暂无评论</view>
+        </view>
+        <scroll-view s-else class="comment-list" scroll-y="true">
+            <view class="comment-box" s-for="item,index in comments">
+                <view class="user">
+                    <image class="user-img" src="{{item.userinfo.image}}"></image>
+                </view>
+                <view class="user-box">
+                    <view class="username">{{item.userinfo.name}}</view>
+                    <view class="content">{{item.content}}</view>
+                    <view class="foot">
+                        <view class="comment-time">{{item.time}}</view>
+                        <view bind:tap="comment" class="comment-bar">
+                            <img class="img-icon" alt="" src={{comment}} />
+                        </view>
+                    </view>
+                    <view s-if={{item.children}} s-for="subitem,idx in item.children" class="subcomment">
+                        <view class="username">{{subitem.userinfo.name}} 回复：{{subitem.author_name}}</view>
+                        <view class="content">{{subitem.content}}</view>
+                        <view class="foot">
+                            <view class="comment-time">{{subitem.time}}</view>
+                            <view bind:tap="comment" class="comment-bar">
+                                <img class="img-icon" alt="" src={{comment}} />
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+        <form class="formbox" bindsubmit="submit">
+            <input class="input-box" type="text" name='content' placeholder='添加一条评论吧~' />
+            <button class="thresholdBtn" bind:tap="hideModal" form-type="submit">确定</button>
+        </form>
     </view>
 </view>
